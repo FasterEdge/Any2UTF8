@@ -264,3 +264,22 @@ func TestVersionConstant(t *testing.T) {
 		t.Fatalf("version = %q, want 1.0.20260913", version)
 	}
 }
+
+func FuzzSniffEncoding(f *testing.F) {
+	f.Add([]byte("hello 世界"))
+	f.Add([]byte{0xFF, 0xFE, 'A', 0})
+	f.Add([]byte{0xD6, 0xD0, 0xCE, 0xC4})
+	f.Add([]byte{})
+	f.Fuzz(func(t *testing.T, data []byte) {
+		_ = sniffEncoding(data)
+	})
+}
+
+func FuzzResolveEncoding(f *testing.F) {
+	f.Add("GBK")
+	f.Add("utf-16le")
+	f.Add("not-a-codec")
+	f.Fuzz(func(t *testing.T, name string) {
+		_, _, _ = resolveEncoding(name)
+	})
+}
