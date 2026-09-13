@@ -27,6 +27,7 @@ any2utf8 --detect [文件...]    # 仅探测源编码, 不转换
 | `-output 文件` | 输出文件(默认 stdout; 与 `-inplace` 互斥) |
 | `-inplace` | 原地转换, 原子替换原文件(保留原权限) |
 | `-strict` | 严格模式: 出现替换字符/非法序列即失败(exit 1) |
+| `-version` | 打印版本 |
 | `-list` / `-detect` / `-sys-encoding` | 信息类子命令 |
 
 > 约束: 标准输入有 1GiB 上限(超限明确报错, 不静默截断); `-output` 仅限单文件(多文件输出请用重定向或 `-inplace`)。
