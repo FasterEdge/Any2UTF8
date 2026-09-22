@@ -64,4 +64,4 @@ go test ./...      # unit tests (encoding detection / two-way conversion / in-pl
 
 Apache-2.0 (consistent with the DontCrack family), see the repository LICENSE.
 
-Current version: **1.0.20260913**
+Current version: **1.0.20260922**
