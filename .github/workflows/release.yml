@@ -42,7 +42,7 @@ jobs:
         else
           tar czf ../any2utf8-${{ matrix.target }}.tar.gz any2utf8
         fi
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       with:
         name: 'any2utf8-${{ matrix.target }}'
         path: '${{ github.workspace }}/any2utf8-${{ matrix.target }}.*'
@@ -58,7 +58,7 @@ jobs:
       run: docker build -t any2utf8 .
     - name: '导出镜像包'
       run: docker save any2utf8 | gzip > any2utf8-image.tar.gz
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       with:
         name: 'any2utf8-docker-image'
         path: 'any2utf8-image.tar.gz'
